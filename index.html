@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>沟通边界手册 · 4 部分 12 节（本期开放 3 节正文）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+html,body{background:#F1EAE1}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+  color:#33403D;font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased}
+
+/* ---------- 布局 ---------- */
+.wrap{max-width:430px;margin:0 auto;background:#FAF7F2;min-height:100vh;box-shadow:0 0 60px rgba(80,90,84,.08)}
+@media(min-width:900px){
+  .wrap{max-width:1060px;display:flex;align-items:flex-start;background:#FAF7F2;padding:0}
+  .side{width:266px;flex:0 0 266px;position:sticky;top:0;height:100vh;overflow-y:auto;background:#F5EFE7;border-right:1px solid #EAE1D5;padding:26px 16px 40px}
+  .main{flex:1;min-width:0;padding:0 34px 70px}
+  .mobilenav{display:none}
+  .topbar{display:block !important}
+}
+.main{padding:0 20px 70px}
+.side{display:none}
+.mobilenav{display:block;position:sticky;top:0;z-index:30;background:rgba(250,247,242,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid #EFE8DF;padding:10px 0 9px}
+.mobilenav .mrow{display:flex;gap:7px;overflow-x:auto;padding:0 16px;-webkit-overflow-scrolling:touch}
+.mobilenav .mrow::-webkit-scrollbar{display:none}
+.mchip{flex:0 0 auto;white-space:nowrap;font-size:12px;font-weight:700;color:#6B7A76;border:1px solid #EAE1D5;
+  background:#fff;border-radius:999px;padding:5px 12px;text-decoration:none}
+.mchip.on{background:#4E8C84;border-color:#4E8C84;color:#fff}
+
+/* ---------- 通用 ---------- */
+.eyebrow{font-size:12px;letter-spacing:.18em;color:#9AA8A4;font-weight:600}
+.h1{font-size:28px;line-height:1.3;font-weight:800;letter-spacing:-.01em}
+.lede{color:#63736F;font-size:14.5px}
+.tag{display:inline-block;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:700;background:#EAF3F0;color:#4E8C84}
+.tag.a{background:#FBEADC;color:#B46B3C}.tag.c{background:#ECE9F7;color:#6E65A8}
+.tag.d{background:#E3ECF5;color:#4B7196}
+.muted{color:#8C9A96;font-size:12.5px;line-height:1.8}
+.card{background:#fff;border-radius:22px;padding:20px 18px;box-shadow:0 6px 22px rgba(74,90,84,.07)}
+.rule{height:1px;background:#EFE8DF;margin:22px 0}
+.kicker{font-size:12px;letter-spacing:.16em;color:#9AA8A4;font-weight:700}
+
+/* ---------- 封面 ---------- */
+.cover{padding:40px 0 10px}
+.cover .h1{margin:12px 0 10px}
+.cover .lede{margin:0 0 16px}
+.cover .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.chip{background:#fff;border:1px solid #EEE5DA;border-radius:999px;padding:6px 13px;font-size:12.5px;color:#5C6B67;font-weight:600}
+.topbar{display:none}
+
+/* ---------- 目录（侧栏） ---------- */
+.side .st{font-size:12px;letter-spacing:.16em;color:#9AA8A4;font-weight:700;margin:0 6px 14px}
+.side .sp{font-size:12.5px;font-weight:800;color:#33403D;margin:20px 6px 8px;display:flex;align-items:center;gap:7px}
+.side .sp .n{width:20px;height:20px;border-radius:7px;background:#EDE5DA;color:#8C9A96;font-size:11px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+.side a{list-style:none;text-decoration:none;display:flex;align-items:center;gap:8px;font-size:13px;color:#6B7A76;
+  padding:7px 10px;border-radius:10px;line-height:1.5}
+.side a:hover{background:#EFE7DC}
+.side a .st2{flex:0 0 auto;font-size:10px;font-weight:800;color:#fff;background:#71B0A4;border-radius:5px;padding:1px 5px}
+.side a .st3{flex:0 0 auto;font-size:10px;font-weight:700;color:#B0B8B4;border:1px solid #E3DCD2;border-radius:5px;padding:1px 5px}
+.side a.open{color:#33403D;font-weight:700;background:#fff;box-shadow:0 3px 10px rgba(74,90,84,.06)}
+
+/* ---------- 8 类人格 ---------- */
+.types{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+@media(min-width:900px){.types{grid-template-columns:repeat(4,1fr)}}
+.tcard{background:#fff;border-radius:16px;padding:13px 13px;box-shadow:0 4px 14px rgba(74,90,84,.06);border-left:3px solid #71B0A4}
+.tcard.b1{border-left-color:#E9A178}.tcard.b2{border-left-color:#8E86C4}.tcard.b3{border-left-color:#5B7FA6}.tcard.b4{border-left-color:#C9A15E}
+.tcard .tn{font-size:14px;font-weight:800;line-height:1.4}
+.tcard .td{font-size:12px;color:#8C9A96;margin-top:5px;line-height:1.65}
+
+/* ---------- 速查表 ---------- */
+.qtwrap{background:#fff;border-radius:22px;padding:16px 12px 12px;box-shadow:0 6px 22px rgba(74,90,84,.07);margin-top:14px}
+.qt{width:100%;border-collapse:collapse;table-layout:fixed}
+.qt th,.qt td{border-bottom:1px dashed #EFE8DF;padding:9px 7px;vertical-align:top;text-align:left;font-size:11.5px;line-height:1.6}
+.qt th{font-size:11.5px;color:#8C9A96;font-weight:800}
+.qt tr:last-child td{border-bottom:0}
+.qt .pn{font-weight:800;color:#33403D;font-size:12px}
+.qt .sg{color:#8C9A96}
+.qt .ans{color:#4B5C58;font-weight:600}
+.qt th:nth-child(1),.qt td:nth-child(1){width:74px}
+.qt th:nth-child(2),.qt td:nth-child(2){width:82px}
+
+/* ---------- 章节 ---------- */
+.part{margin:38px 0 0}
+.part-h{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.part-h .pn{width:30px;height:30px;border-radius:10px;background:#4E8C84;color:#fff;font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+.part-h .pt{font-size:18px;font-weight:800}
+.part-sub{color:#9AA8A4;font-size:12.5px;margin:0 0 16px 40px}
+.ch{background:#fff;border-radius:24px;padding:22px 18px;box-shadow:0 8px 26px rgba(74,90,84,.08);margin-bottom:16px;scroll-margin-top:64px}
+.ch .ck{font-size:11.5px;letter-spacing:.1em;color:#B0895F;font-weight:800}
+.ch .ct{font-size:21px;font-weight:800;line-height:1.4;margin:7px 0 4px}
+.ch .cs{font-size:13px;color:#9AA8A4;margin-bottom:6px}
+.blk{margin-top:18px;padding-top:16px;border-top:1px dashed #EFE8DF}
+.blk:first-of-type{border-top:0;padding-top:4px}
+.lbl{display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:800;margin-bottom:11px}
+.lbl .n{width:22px;height:22px;border-radius:8px;background:#EAF3F0;color:#4E8C84;font-size:12px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.blk p{font-size:14.5px;line-height:1.78;color:#4B5C58;margin-bottom:9px}
+.blk p:last-child{margin-bottom:0}
+.blk ul{list-style:none}
+.blk li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.75;color:#4B5C58;padding:5px 0}
+.blk li .d{flex:0 0 6px;width:6px;height:6px;border-radius:50%;background:#9CC4BC;margin-top:11px}
+.blk li b{color:#33403D}
+.say{display:flex;gap:12px;align-items:flex-start;background:#FAF7F2;border:1px solid #EFE7DC;border-radius:16px;padding:14px 15px;margin-bottom:10px}
+.say .sn{flex:0 0 auto;width:22px;height:22px;border-radius:8px;background:#71B0A4;color:#fff;font-size:12px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin-top:3px}
+.say .st{flex:1}
+.say .st .sh{font-size:12px;font-weight:800;color:#B0895F;margin-bottom:4px;letter-spacing:.02em}
+.say .st .sq{font-size:15px;line-height:1.78;color:#33403D}
+.say .st .sn2{font-size:12.5px;color:#9AA8A4;margin-top:6px}
+.say.b2 .sn{background:#E9A178}.say.b3 .sn{background:#8E86C4}
+.prac{background:#EAF4F1;border-radius:18px;padding:16px 15px;margin-top:16px}
+.prac .lbl .n{background:#4E8C84;color:#fff}
+.prac li .d{background:#71B0A4}
+.prac .lbl{color:#2F5F59}
+.prac p,.prac li{color:#3B5B57}
+.next{margin-top:14px;background:#FBEADC;border-radius:16px;padding:14px 15px}
+.next .lbl .n{background:#E9A178;color:#fff}
+.next .lbl{color:#8A5A2E}
+.next p{color:#6B4B2C}
+.chfoot{display:flex;gap:10px;margin-top:16px}
+.chfoot .rbtn{flex:1;text-align:center;padding:12px;border:0;border-radius:14px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;
+  background:#fff;border:1px solid #E9E1D6;color:#6B7A76;text-decoration:none}
+
+.tbd{background:#FBF7F0;border:1px dashed #E3DCD2;border-radius:20px;padding:20px 18px;margin-bottom:14px}
+.tbd .tt{font-size:16px;font-weight:800;color:#8C9A96}
+.tbd .td{font-size:13px;color:#A5AFA9;margin-top:7px;line-height:1.75}
+.tbd .td b{color:#7C8B87}
+
+.foot{text-align:center;color:#B0B8B4;font-size:11.5px;line-height:1.9;margin-top:34px;padding-top:20px;border-top:1px dashed #EFE8DF}
+.toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);background:rgba(40,52,49,.93);
+  color:#fff;padding:11px 20px;border-radius:14px;font-size:14px;opacity:0;pointer-events:none;transition:all .28s ease;z-index:99}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- 产品11 追加 ---------- */
+.disc{background:#F7F3EC;border-radius:16px;padding:13px 14px;margin-top:18px;font-size:12.5px;line-height:1.8;color:#7C8A86}
+.disc b{color:#54635F}
+.main p{line-height:1.9}
+.ch .blk p{line-height:1.95}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+<div class="st">CONTENTS</div>
+<div class="sp"><span class="n">1</span>看清自己的边界</div>
+<a href="#c1" data-t="c1"><span class="st2">本期</span>01 怎么判断自己的边界在哪</a>
+<a href="#t2" data-t="t2"><span class="st3">框架</span>02 边界不是敌意</a>
+<a href="#t3" data-t="t3"><span class="st3">框架</span>03 懂事和设边界的区别</a>
+<a href="#t4" data-t="t4"><span class="st3">框架</span>04 哪些事不用设边界</a>
+<div class="sp"><span class="n">2</span>把话说清楚</div>
+<a href="#c5" data-t="c5"><span class="st2">本期</span>05 怎么把边界说清楚不伤人</a>
+<a href="#t6" data-t="t6"><span class="st3">框架</span>06 说清边界的顺序</a>
+<a href="#t7" data-t="t7"><span class="st3">框架</span>07 对方听不懂怎么办</a>
+<div class="sp"><span class="n">3</span>守住边界</div>
+<a href="#t8" data-t="t8"><span class="st3">框架</span>08 边界被踩了怎么反应</a>
+<a href="#c9" data-t="c9"><span class="st2">本期</span>09 边界被踩了怎么补救</a>
+<a href="#t10" data-t="t10"><span class="st3">框架</span>10 拒绝和发火怎么分</a>
+<div class="sp"><span class="n">4</span>长期维持</div>
+<a href="#t11" data-t="t11"><span class="st3">框架</span>11 长期怎么维护边界</a>
+<a href="#t12" data-t="t12"><span class="st3">框架</span>12 关系近的人怎么设边界</a>
+<div class="sp"><span class="n">★</span>速查与说明</div>
+<a href="#quick" data-t="quick">场景速查表</a>
+<a href="#howto" data-t="howto">怎么用这本手册</a>
+</aside>
+  <div class="main">
+<div class="mobilenav"><div class="mrow">
+<a href="#top" class="mchip" data-c="top">封面</a>
+<a href="#quick" class="mchip" data-c="quick">速查表</a>
+<a href="#c1" class="mchip" data-c="c1">01 看清</a>
+<a href="#c5" class="mchip" data-c="c5">05 说清</a>
+<a href="#c9" class="mchip" data-c="c9">09 补救</a>
+<a href="#howto" class="mchip" data-c="howto">怎么用</a>
+</div></div>
+    <section class="cover" id="top">
+      <div class="eyebrow">BOUNDARY HANDBOOK</div>
+      <h1 class="h1">沟通边界手册</h1>
+      <p class="lede">边界在哪、怎么说清、被踩了怎么补救 —— 4 部分 12 节里先给你 3 节正文。<br>先把线找出来，再把话说出口。</p>
+      <div class="chips">
+        <span class="chip">4 部分 12 节</span>
+        <span class="chip">本期开放 3 节正文</span>
+        <span class="chip">1 张场景速查表</span>
+        <span class="chip">每节配 1 个练习</span>
+      </div>
+    </section>
+
+    <div class="card">
+      <div class="kicker">怎么用这本手册</div>
+      <p>很多关系卡住，不是因为感情淡了，是因为<b>边界没被说出口</b>：你忍了，对方不知道；你说了，对方听成情绪。</p>
+      <p>全书共 4 部分 12 节，<b>本期开放 3 节正文</b>（01 怎么判断自己的边界在哪 / 05 怎么把边界说清楚不伤人 / 09 边界被踩了怎么补救），其余章节目录已列出，正文待后续展开。</p>
+      <div class="rule"></div>
+      <p class="muted">每节正文固定五段：<b>场景 → 先判断什么 → 三种具体说法 → 对方继续劝说怎么回 → 今天能完成的小练习</b>。本内容是自我观察与练习工具，不构成专业心理评估、诊断或医疗建议；话术是参考句不是标准答案，请按你面对的人和场合调整。</p>
+    </div>
+
+    <section id="quick">
+      <h2>场景速查表</h2>
+      <p class="muted">来不及读整节时看这张表：认出场景 → 用一句话 → 补一个动作。</p>
+      <div class="qtwrap">
+        <table class="qt">
+          <thead><tr><th>场景</th><th>什么时候用</th><th>一句话怎么说</th><th>补一个动作</th></tr></thead>
+          <tbody>
+<tr><td class="pn">临时加活</td><td class="sg">对方临时塞活过来</td><td class="ans">这类事我只在周末处理</td><td class="sg">把你能接的时间写清</td></tr>
+<tr><td class="pn">晚上发消息</td><td class="sg">下班后还在找你</td><td class="ans">晚上十点前发，我上午回</td><td class="sg">在聊天设置里留一句</td></tr>
+<tr><td class="pn">亲戚让你办事</td><td class="sg">开口就是帮忙</td><td class="ans">我能出力那部分我帮</td><td class="sg">先问清具体是什么事</td></tr>
+<tr><td class="pn">同事总拉你</td><td class="sg">同一件事反复找你</td><td class="ans">这次我手上有事</td><td class="sg">提前说自己忙</td></tr>
+<tr><td class="pn">不想去饭局</td><td class="sg">邀约接不住</td><td class="ans">这次我不去了，下次我请</td><td class="sg">给一个替代的时间</td></tr>
+<tr><td class="pn">家里问收入</td><td class="sg">亲戚问工资问对象</td><td class="ans">这块我不太想聊</td><td class="sg">换个话题接着聊</td></tr>
+<tr><td class="pn">被当众否定</td><td class="sg">会上说你不行</td><td class="ans">我先听完你说的那部分</td><td class="sg">会后再单独聊</td></tr>
+<tr><td class="pn">对方装听不懂</td><td class="sg">同一个问题说了三遍</td><td class="ans">十点前发我第二天回</td><td class="sg">把要求说成具体动作</td></tr>
+<tr><td class="pn">越亲近越难开口</td><td class="sg">跟很熟的人不好拒绝</td><td class="ans">我帮你做这一步，别的我来不了</td><td class="sg">对亲近的人说细一点</td></tr>
+<tr><td class="pn">拒绝后对方冷了</td><td class="sg">话说出口气氛变差</td><td class="ans">我不是针对你，是这件事我不行</td><td class="sg">隔一天再补一句关心</td></tr>
+<tr><td class="pn">当场被踩</td><td class="sg">忍下来第二天更气</td><td class="ans">我刚说过晚上不接事</td><td class="sg">当场用一句点出事实</td></tr>
+<tr><td class="pn">长期维护</td><td class="sg">同一句解释说了很多遍</td><td class="ans">我把规矩先说好</td><td class="sg">写进常用句里</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">1</span><span class="pt">看清自己的边界</span></div>
+      <p class="part-sub">对应场景：临时加活 · 边界不是敌意 · 懂事和设边界 · 哪些事不用设边界</p>
+<article class="ch" id="c1">
+<div class="ck">第 01 节 · 本期正文</div>
+<h2 class="ct">怎么判断自己的边界在哪</h2>
+<p class="cs">边界不是一份能抄的清单，是一条线：线这边是你的时间和情绪，线那边是别人的需求。线在哪，得先自己认出来。</p>
+<div class="blk"><div class="lbl"><span class="n">1</span>场景</div>
+<p>同事晚上九点发来一份文档，说明天早上要用，你今晚先看一眼。你心里一紧，手上还有别的事，可嘴上已经回了「好的」。</p>
+<p>很多人不是没有边界，是边界被别人的语气推着走。对方越急，你越觉得不好意思说不。可边界不是拒绝清单，是先认出自己的那条线在哪里。</p>
+</div>
+<div class="blk"><div class="lbl"><span class="n">2</span>先判断什么</div><ul>
+<li><span class="d"></span><span><b>这件事让你不舒服的是时间、人数，还是背后的情绪？</b>同样是加班，有人烦的是占用时间，有人烦的是被当成随叫随到。烦的来源不同，线的位置也不同。</span></li>
+<li><span class="d"></span><span><b>你答应了，是真心愿意，还是怕对方失望？</b>怕失望不是愿意。怕，说明你在替别人的情绪负责。</span></li>
+<li><span class="d"></span><span><b>如果对方换个说法，你还会答应吗？</b>同一件事，语气软一点你就点了头，说明你被语气牵着走了。</span></li>
+<li><span class="d"></span><span><b>答应完你是松了一口气，还是更累？</b>身体比嘴诚实。松一口气是边界清楚；更累是边界被推着走。</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">3</span>三种具体说法</div>
+<div class="say b1"><div class="sn">1</div><div class="st"><div class="sh">分类式</div><div class="sq">「我先分一下：今晚我腾不出手，其他部分我能帮。」</div><div class="sn2">适用：你要拒绝的是这件事里的某一小部分，不是全部。</div></div></div>
+<div class="say b2"><div class="sn">2</div><div class="st"><div class="sh">状态式</div><div class="sq">「我这两天自己的事排满了，帮你这件事我心里过不去。」</div><div class="sn2">适用：对方是熟人，说清自己的状态比讲道理管用。</div></div></div>
+<div class="say b3"><div class="sn">3</div><div class="st"><div class="sh">提前说式</div><div class="sq">「以后这种要赶着要的事，我晚上不一定回得了，你提前半天跟我说会好一些。」</div><div class="sn2">适用：想一次把话说定，别每次都临时挡。</div></div></div>
+</div>
+<div class="blk"><div class="lbl"><span class="n">4</span>对方继续劝说怎么回</div><ul>
+<li><span class="d"></span><span><b>「就一个小忙都不帮？」</b>→ 「不是不帮，是今晚我真的腾不出手。明天上午我先看。」</span></li>
+<li><span class="d"></span><span><b>「大家都这么忙，就你不行？」</b>→ 「大家的方式不一样，我这段时间确实排满了，我按我的来。」</span></li>
+<li><span class="d"></span><span><b>「那算了，当我没说。」</b>→ 「谢你理解。这件事我确实做不了，改天有能搭上的地方我主动来。」</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">5</span>今天能完成的小练习</div><div class="prac"><ul>
+<li><span class="d"></span><span>拿张纸写下这周让你心里一紧的三件事，每件标一句：占时间 / 耗情绪 / 被默认。</span></li>
+<li><span class="d"></span><span>在标出的三件里挑一件，按本节的说法回一次。</span></li>
+<li><span class="d"></span><span>记下对方的反应和事后的感觉，攒成一条你自己的边界记录。</span></li>
+</ul></div></div>
+<div class="chfoot"><a class="rbtn" href="#quick">回到场景速查表</a></div>
+</article>
+<div class="tbd" id="t2">
+<div class="tt">02 边界不是敌意</div>
+<div class="td">识别信号：说完拒绝，对方就不说话了<br>改法：改法：把拒绝和关系分开讲——这是事，不是人<br>记住一句：<b>划线不是把人推开，是把位置摆正。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t3">
+<div class="tt">03 懂事和设边界的区别</div>
+<div class="td">识别信号：答应了，但心里一直不舒服<br>改法：改法：问自己一句——我是愿意，还是我怕对方失望<br>记住一句：<b>懂事是选择，忍耐是默认。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t4">
+<div class="tt">04 哪些事不用设边界</div>
+<div class="td">识别信号：为一件小事反复纠结<br>改法：改法：小事就答应，把力气留给真正要紧的那几件<br>记住一句：<b>边界用在大地方，才有用处。</b> 本节正文待展开。</div>
+</div>
+    </div>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">2</span><span class="pt">把话说清楚</span></div>
+      <p class="part-sub">对应场景：说清边界 · 说话的顺序 · 对方听不懂怎么办</p>
+<article class="ch" id="c5">
+<div class="ck">第 05 节 · 本期正文</div>
+<h2 class="ct">怎么把边界说清楚不伤人</h2>
+<p class="cs">说清边界需要两样东西：一句明确的范围，一句不带指责的理由。缺了任何一样，对方都容易听成你在闹脾气。</p>
+<div class="blk"><div class="lbl"><span class="n">1</span>场景</div>
+<p>你想告诉家里，以后别再临时让你去办事。可话一出口就变成了「你们就知道欺负我」，事情没解决，关系也冷了。</p>
+<p>多数边界冲突不是边界本身有问题，是表达带上了指责。指责让对方先要面子，再谈事，就谈不成了。</p>
+</div>
+<div class="blk"><div class="lbl"><span class="n">2</span>先判断什么</div><ul>
+<li><span class="d"></span><span><b>你要说清的是范围，还是情绪？</b>范围可以说清：几点前、几个人、哪些事。情绪要另说，别混在一句里。</span></li>
+<li><span class="d"></span><span><b>对方听到这句话，会先做什么？</b>如果对方先解释、先反驳，说明你把指责放在了前面。</span></li>
+<li><span class="d"></span><span><b>你有没有给对方留一个能接住的口子？</b>说完边界补一句「这事我们再商量」，对方才有台阶下。</span></li>
+<li><span class="d"></span><span><b>这句话说出口之后，你打算怎么做？</b>说不出口又做不到，边界只是空的，要把话和行动写在一起。</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">3</span>三种具体说法</div>
+<div class="say b1"><div class="sn">1</div><div class="st"><div class="sh">范围式</div><div class="sq">「这类事我只在周末处理，工作日我腾不出手。」</div><div class="sn2">适用：想把时间范围说死，又不想解释太多。</div></div></div>
+<div class="say b2"><div class="sn">2</div><div class="st"><div class="sh">原因加范围式</div><div class="sq">「我这周身体不太好，医生让我少操心，所以临时的事我帮不了。」</div><div class="sn2">适用：对方是家人，给个原因比讲道理管用。</div></div></div>
+<div class="say b3"><div class="sn">3</div><div class="st"><div class="sh">选择式</div><div class="sq">「我可以直接做 A，B 我做不了。你看怎么安排。」</div><div class="sn2">适用：想用给选项代替替对方下判断，让对方有事可做。</div></div></div>
+</div>
+<div class="blk"><div class="lbl"><span class="n">4</span>对方继续劝说怎么回</div><ul>
+<li><span class="d"></span><span><b>「你这是什么意思？」</b>→ 「意思就是我今天没精力处理这件事，跟你没关系。」</span></li>
+<li><span class="d"></span><span><b>「以前你可不是这样的。」</b>→ 「以前是我硬扛，这次我先把自己的事顾好。」</span></li>
+<li><span class="d"></span><span><b>「行，那我就找别人了。」</b>→ 「可以，你找谁都行，我这边确实做不了。」</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">5</span>今天能完成的小练习</div><div class="prac"><ul>
+<li><span class="d"></span><span>挑一句你更怕说出口的边界，写成范围加原因两句，各不超过二十字。</span></li>
+<li><span class="d"></span><span>今天找一个人说一次，说完记下对方的反应。</span></li>
+<li><span class="d"></span><span>把你不敢说的那句写下来念一遍，你会发现它没有以为的那么难。</span></li>
+</ul></div></div>
+<div class="chfoot"><a class="rbtn" href="#quick">回到场景速查表</a></div>
+</article>
+<div class="tbd" id="t6">
+<div class="tt">06 说清边界的顺序</div>
+<div class="td">识别信号：话说到一半，你自己先退了<br>改法：改法：范围 → 原因 → 台阶，三步走完再停<br>记住一句：<b>话说全了，就不用再说第二遍。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t7">
+<div class="tt">07 对方听不懂怎么办</div>
+<div class="td">识别信号：同一个问题说了三遍还在发生<br>改法：改法：把要求写成具体动作，比如十点前发<br>记住一句：<b>讲要求不如讲动作。</b> 本节正文待展开。</div>
+</div>
+    </div>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">3</span><span class="pt">守住边界</span></div>
+      <p class="part-sub">对应场景：当场被踩 · 事后补救 · 拒绝和发火怎么分</p>
+<div class="tbd" id="t8">
+<div class="tt">08 边界被踩了怎么反应</div>
+<div class="td">识别信号：当场忍下来，第二天更气<br>改法：改法：当场用一句话点出事实，不翻旧账<br>记住一句：<b>当场一句，胜过事后一场。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t10">
+<div class="tt">10 拒绝和发火怎么分</div>
+<div class="td">识别信号：你说完，对方要哄你<br>改法：改法：把情绪收进事实里说<br>记住一句：<b>语气是包装，事实才是内容。</b> 本节正文待展开。</div>
+</div>
+<article class="ch" id="c9">
+<div class="ck">第 09 节 · 本期正文</div>
+<h2 class="ct">边界被踩了怎么补救</h2>
+<p class="cs">边界被踩了不必翻旧账。补救分三步：先确认事实，再说明影响，再给一个往前走的办法。</p>
+<div class="blk"><div class="lbl"><span class="n">1</span>场景</div>
+<p>你上周说过晚上别找我，对方还是半夜发来消息。你当场没回，第二天回了一句「我说了别晚上找我」，然后两个人都有点别扭。</p>
+<p>边界被踩有两种处理方式：当场的忍耐，和事后的翻旧账，两个都不好受。补救的关键是把话说到往前看，而不是往回看。</p>
+</div>
+<div class="blk"><div class="lbl"><span class="n">2</span>先判断什么</div><ul>
+<li><span class="d"></span><span><b>这件事是对方没听见，还是听见了没当回事？</b>两种情况要说的不一样：没听见就再说一遍，听见了没当回事就得说清后果。</span></li>
+<li><span class="d"></span><span><b>你要的是这次道歉，还是以后别再发生？</b>道歉解决这一次，规则解决以后。多数冲突卡在只追这一次不放。</span></li>
+<li><span class="d"></span><span><b>你气的是这件事，还是被无视的感觉？</b>被无视更难受，可说出口的应该是这件事和它给你带来的影响。</span></li>
+<li><span class="d"></span><span><b>补救之后，你想维持这段关系吗？</b>想维持就把话说得留有余地，不想维持就不必再解释。</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">3</span>三种具体说法</div>
+<div class="say b1"><div class="sn">1</div><div class="st"><div class="sh">事实式</div><div class="sq">「昨晚我说过晚上不接事，消息还是发过来了。」</div><div class="sn2">适用：先让事实落地，不带评价。</div></div></div>
+<div class="say b2"><div class="sn">2</div><div class="st"><div class="sh">影响式</div><div class="sq">「我那晚睡得很差，第二天状态不好，所以以后晚上的事我回得慢。」</div><div class="sn2">适用：你想让对方知道这件事对你有影响，而不是他做错了。</div></div></div>
+<div class="say b3"><div class="sn">3</div><div class="st"><div class="sh">往前式</div><div class="sq">「这次就算了。以后晚上十点前发，我第二天上午回你。」</div><div class="sn2">适用：你想翻篇，同时把规则定下来。</div></div></div>
+</div>
+<div class="blk"><div class="lbl"><span class="n">4</span>对方继续劝说怎么回</div><ul>
+<li><span class="d"></span><span><b>「我以为你只是随口一说。」</b>→ 「那我再说一遍：晚上十点前发就行，我第二天上午回。」</span></li>
+<li><span class="d"></span><span><b>「你这也太较真了。」</b>→ 「我不是较真，是想把这事说清楚，你睡好了我也回得快。」</span></li>
+<li><span class="d"></span><span><b>「行行行，我以后不找你了。」</b>→ 「不用这样，白天找我还是照常找，我们把时间和方式说清就好。」</span></li>
+</ul></div>
+<div class="blk"><div class="lbl"><span class="n">5</span>今天能完成的小练习</div><div class="prac"><ul>
+<li><span class="d"></span><span>回想这半年被踩过的三次边界，每次写下：当时说了什么、后来改成什么。</span></li>
+<li><span class="d"></span><span>今天用事实加影响加往前这三句，处理一件还压着的事。</span></li>
+<li><span class="d"></span><span>把这三句存进收藏夹，下次改两个词就能用。</span></li>
+</ul></div></div>
+<div class="chfoot"><a class="rbtn" href="#quick">回到场景速查表</a></div>
+</article>
+    </div>
+
+    <div class="part">
+      <div class="part-h"><span class="pn">4</span><span class="pt">长期维持</span></div>
+      <p class="part-sub">对应场景：长期规则 · 关系近的人</p>
+<div class="tbd" id="t11">
+<div class="tt">11 长期怎么维护边界</div>
+<div class="td">识别信号：同一句解释你说了很多遍<br>改法：改法：把边界写成固定规则，一次说清<br>记住一句：<b>值得说很多遍的事，要先说清规矩。</b> 本节正文待展开。</div>
+</div>
+<div class="tbd" id="t12">
+<div class="tt">12 关系近的人怎么设边界</div>
+<div class="td">识别信号：越亲近越不好意思开口<br>改法：改法：对亲近的人说得更具体，别用暗示<br>记住一句：<b>越亲的人，越要把话说细。</b> 本节正文待展开。</div>
+</div>
+    </div>
+
+    <section id="howto">
+      <div class="card">
+        <div class="kicker">交付与使用说明</div>
+        <p>这是一份单文件网页资料，拍下后自动发货一条链接，手机浏览器打开就能用，同一条链接可以反复使用。</p>
+        <p class="muted">整个页面是单个网页文件，提前存在手机里断网也能看；手机上先存好，下次直接点开。本内容是自我观察与练习工具，不构成专业心理评估、诊断或医疗建议。</p>
+      </div>
+      <div class="disc"><b>售后说明</b><br>虚拟资料，付款后不支持退款。页面打不开或显示异常，可在订单里联系售后处理。</div>
+    </section>
+
+    <div class="foot">
+      沟通边界手册 · 4 部分 12 节，本期开放 3 节正文<br>
+      单文件网页，手机打开即用，断网也能看
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.side a'));
+  var chips=[].slice.call(document.querySelectorAll('.mchip'));
+  function go(e){
+    var href=this.getAttribute('href');
+    if(!href||href.charAt(0)!=='#') return;
+    var el=document.querySelector(href);
+    if(!el) return;
+    e.preventDefault();
+    var top=el.getBoundingClientRect().top+window.pageYOffset-64;
+    window.scrollTo({top:top,behavior:'smooth'});
+  }
+  links.forEach(function(a){a.addEventListener('click',go);});
+  chips.forEach(function(a){a.addEventListener('click',go);});
+
+  var ids=links.map(function(a){return a.getAttribute('data-t');});
+  function highlight(){
+    var y=window.pageYOffset+90, cur='';
+    ids.forEach(function(id){
+      var el=document.getElementById(id);
+      if(el&&el.getBoundingClientRect().top+window.pageYOffset<=y) cur=id;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('open',a.getAttribute('data-t')===cur);
+    });
+    chips.forEach(function(a){
+      a.classList.toggle('on',a.getAttribute('data-c')===cur);
+    });
+  }
+  var t=null;
+  window.addEventListener('scroll',function(){if(t)return;t=setTimeout(function(){t=null;highlight();},80);});
+  highlight();
+})();
+</script>
+</body>
+</html>
